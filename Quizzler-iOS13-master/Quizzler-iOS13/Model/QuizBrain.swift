@@ -1,11 +1,3 @@
-//
-//  QuizBrain.swift
-//  Quizzler-iOS13
-//
-//  Created by Osman Talha Aydın on 19.10.2022.
-//  Copyright © 2022 The App Brewery. All rights reserved.
-//
-
 import Foundation
 
 struct QuizBrain{
@@ -23,9 +15,12 @@ struct QuizBrain{
                   Question(q: "Chocolate affects a dog's heart and nervous system; a few ounces are enough to kill a small dog.", a: "True")
 ]
     var questionNumber = 0
-
-    func checkAnswer(answer userAnswer:String)->Bool {
+    var point = 0
+    
+    
+    mutating func checkAnswer(answer userAnswer:String)->Bool {
         if(userAnswer == quiz[questionNumber].answer){
+            point += 1
             return true
         }
         else{
@@ -47,6 +42,9 @@ struct QuizBrain{
         }
         else{
             self.questionNumber = 0
+            self.point = 0
         }
     }
+    
+
 }

@@ -6,12 +6,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var questionBar: UILabel!
     @IBOutlet weak var FalseButton: UIButton!
     @IBOutlet weak var TrueButton: UIButton!
+    @IBOutlet weak var point: UILabel!
     
     var quizBrain = QuizBrain()
     
     @IBAction func AnswerButtonPressed(_ sender: UIButton){
         let questionAnswer:String = sender.currentTitle!
-        let userGotRight = QuizBrain().checkAnswer(answer : questionAnswer)
+        let userGotRight = quizBrain.checkAnswer(answer : questionAnswer)
         
         if userGotRight{
             sender.backgroundColor = UIColor.green
@@ -35,6 +36,7 @@ class ViewController: UIViewController {
     @objc func updateUI(){
         questionBar.text = quizBrain.getQuestion()
         progressBar.progress = quizBrain.getProgress()
+        point.text = String(quizBrain.point)
         TrueButton.backgroundColor = UIColor.clear
         FalseButton.backgroundColor = UIColor.clear
     }
