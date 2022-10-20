@@ -2,7 +2,7 @@ import UIKit
 
 
 class resultViewController: UIViewController{
-    var BMIValue:String = "0.0"
+    var BMIValue:String = ""
     
 
     @IBOutlet weak var BMIvalue: UILabel!
