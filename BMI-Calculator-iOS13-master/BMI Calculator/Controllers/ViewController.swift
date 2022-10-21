@@ -1,11 +1,3 @@
-//
-//  ViewController.swift
-//  BMI Calculator
-//
-//  Created by Angela Yu on 21/08/2019.
-//  Copyright © 2019 Angela Yu. All rights reserved.
-//
-
 import UIKit
 
 class ViewController: UIViewController {
@@ -14,7 +6,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var heightText: UILabel!
     @IBOutlet weak var heightSlider: UISlider!
     @IBOutlet weak var weightSlider: UISlider!
-    var calculatorBrain = CalculatorBrain(BMI: 0)
+    var calculatorBrain = CalculatorBrain()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -37,6 +30,8 @@ class ViewController: UIViewController {
         if segue.identifier == "goToResult"{
             let destinationVC = segue.destination as? resultViewController
             destinationVC?.BMIValue = String(format:"%.1f" ,calculatorBrain.getBMI())
+            destinationVC?.BMIColor = calculatorBrain.getColor()
+            destinationVC?.BMIAdvice = calculatorBrain.getAdvice()
         }
     }
 }
