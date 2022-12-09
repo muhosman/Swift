@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     }
     
 
-    func buttonAlphaAnimate(sender:UIButton){
+    func buttonAlphaAnimate(_ sender:UIButton){
         UIView.animate(withDuration: 0.3) {
             sender.alpha = 0.5
         }
@@ -31,9 +31,9 @@ class ViewController: UIViewController {
         player = try! AVAudioPlayer(contentsOf: url!)
         player.play()
     }
-    @IBAction func keyPressed(_ sender: UIButton) {
+    @IBAction func keyPressed(sender: UIButton) {
         playSound(soundName: sender.currentTitle!)
-        buttonAlphaAnimate(sender: sender)
+        buttonAlphaAnimate(sender)
         
     }
     
